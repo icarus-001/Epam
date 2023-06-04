@@ -1,0 +1,3 @@
+SELECT s.* FROM Student s INNER JOIN (SELECT student_id, AVG(mark) AS avg_mark FROM MARK GROUP BY student_id HAVING AVG(mark) > 8) m ON s.id = m.student_id;
+SELECT s.id, s.name FROM Student s INNER JOIN (SELECT student_id, MIN(mark) AS min_mark FROM MARK GROUP BY student_id HAVING MIN(mark) > 7) m ON s.id = m.student_id;
+SELECT s.id, s.name FROM Student s INNER JOIN (SELECT student_id, COUNT(*) AS num_payments FROM PAYMENT WHERE payment_date >= '2019-01-01' AND payment_date < '2020-01-01' GROUP BY student_id HAVING COUNT(*) > 2) p ON s.id = p.student_id;

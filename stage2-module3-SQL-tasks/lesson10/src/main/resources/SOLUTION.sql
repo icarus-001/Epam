@@ -1,0 +1,2 @@
+SELECT * FROM Subject s WHERE (SELECT AVG(mark) FROM Mark WHERE subject_id = s.id) > (SELECT AVG(mark) FROM Mark);
+SELECT * FROM Student s where (SELECT AVG(amount) FROM PAYMENT WHERE student_id = s.id) > (SELECT AVG(amount) FROM PAYMENT);
